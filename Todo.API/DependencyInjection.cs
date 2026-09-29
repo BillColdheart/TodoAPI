@@ -9,15 +9,15 @@ namespace Todo.API
         public static IServiceCollection AddInfrastructer(
             this IServiceCollection services, IConfiguration configuration)
         {
-
+           
             var connectionString = configuration.GetConnectionString("DatabaseConnection");
-
+            //Add DbContext
             services.AddDbContext<TodoAppDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
             });
 
-            //Add DbContext
+            
 
             return services;
         }
